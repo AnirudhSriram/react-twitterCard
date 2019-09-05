@@ -3,7 +3,7 @@ import './Card.css';
 import logo from "./logo.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Card(props){
-    
+    console.log(props); 
         return (
             <div className="tweet">
                 <div className="header">
@@ -22,16 +22,16 @@ function Card(props){
                 </div>
 
                 <div className="footer">
-
-                    <div className="fontAwesome">
+                    {/* eventHandlers 0 : comment Id , 1:  retweetId , 2: likeId */}
+                    <div className="fontAwesome" onClick={()=>props.eventHandlers.comment(props.details.key,0)}>
                         <FontAwesomeIcon icon={['far', 'comment']} />{props.details.comments}
                     </div>
 
-                    <div className="fontAwesome">
+                    <div className="fontAwesome" onClick={()=>props.eventHandlers.retweet(props.details.key,1)}>
                         <FontAwesomeIcon icon="retweet" /><span>{props.details.retweet}</span>
                     </div>
 
-                    <div className="fontAwesome">
+                    <div className="fontAwesome" onClick={()=>props.eventHandlers.like(props.details.key,2)} >
                         <FontAwesomeIcon icon={['far', 'heart']} />{props.details.likes}
                     </div>
 
